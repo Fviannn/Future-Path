@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News Detail</title>
+    <link rel="stylesheet" href="styleNews.css">
+</head>
+<body>
+    <div class="news-detail-container">
+        <button onclick="history.back()" class="back-button">Back to News Page</button>
+        
+        <div class="news-detail">
+            <h1 id="news-title">News Title</h1>
+            <img id="news-image" src="" alt="News Image">
+            <p id="news-content">Full content of the news article will be displayed here.</p>
+        </div>
+    </div>
+
+    <script>
+        // Use URL parameters to load dynamic content
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('news-title').textContent = params.get('title') || "Default Title";
+        document.getElementById('news-image').src = params.get('image') || "default.jpg";
+        document.getElementById('news-content').textContent = params.get('content') || "No content available.";
+    </script>
+</body>
+</html>
